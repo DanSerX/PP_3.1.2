@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Page</title>
+    <link href="/css/**" th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+<div>
+    <h2>User Info</h2>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>USERNAME</th>
+            <th>SURNAME</th>
+            <th>AGE</th>
+            <th>PHONE</th>
+            <th>EMAIL</th>
+            <th>ROLE</th>
+        </tr>
+        <tr>
+            <td th:text="${user.id}">ID</td>
+            <td th:text="${user.username}">USERNAME</td>
+            <td th:text="${user.surname}">SURNAME</td>
+            <td th:text="${user.age}">AGE</td>
+            <td th:text="${user.phone}">PHONE</td>
+            <td th:text="${user.email}">EMAIL</td>
+            <td th:each="role: ${roles}"><p th:text="${role.name}"></p></td>
+        </tr>
+    </table>
+    <br/>
+    <br/>
+    <input id="button4" type="button" value="LOGOUT" th:onclick="'window.location.href = \'' + @{/logout} + '\''"/>
+</div>
+</body>
+</html>

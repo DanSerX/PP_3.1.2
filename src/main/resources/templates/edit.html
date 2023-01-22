@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Users</title>
+    <link href="/css/**" th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+
+<body>
+<div>
+    <h2>Edit User</h2>
+    <form action="/edit" method="post" th:object="${user}">
+        <input type="hidden" th:field="*{id}"/>
+        Name <input type="text" th:field="*{username}"/>
+        <br><br>
+        Surname <input type="text" th:field="*{surname}"/>
+        <br><br>
+        Age <input type="text" th:field="*{age}"/>
+        <br><br>
+        Phone <input type="text" th:field="*{phone}"/>
+        <br><br>
+        Email <input type="text" th:field="*{email}"/>
+        <br><br>
+        Password <input type="text" th:field="*{password}"/>
+        <br><br>
+        <input type="checkbox" name="checkBoxRoles" value="ROLE_USER" checked/>ROLE_USER
+        <input type="checkbox" name="checkBoxRoles" value="ROLE_ADMIN"/>ROLE_ADMIN
+        <br><br>
+        <button id="button3" type="submit" class="btn btn-success">Ok</button>
+        <br/>
+        <br/>
+        <input id="button4" type="button" value="LOGOUT" th:onclick="'window.location.href = \'' + @{/logout} + '\''"/>
+    </form>
+</div>
+</body>
+</html>
